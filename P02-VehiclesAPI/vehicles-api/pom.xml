@@ -110,6 +110,16 @@
 <!--            <artifactId>jersey-apache-client4</artifactId>-->
 <!--            <version>1.19.4</version>-->
 <!--        </dependency>-->
+
+<!--        lombok-->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

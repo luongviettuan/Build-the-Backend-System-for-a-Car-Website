@@ -115,6 +115,32 @@ public class CarControllerTest {
     }
 
     /**
+     * Tests for successful update of exist car in the system
+     * @throws Exception when car update fails in the system
+     */
+    @Test
+    public void updateCar() throws Exception {
+        Car car = getCar();
+
+        // update new value
+        car.setLocation(new Location(1.0, 2.0));
+        Details details = new Details();
+        details.setBody("mybody");
+        details.setModel("mymodel");
+        Manufacturer manufacturer = new Manufacturer(104, "Dodge");
+        details.setManufacturer(manufacturer);
+        car.setDetails(details);
+        car.setPrice("100000");
+
+        mvc.perform(
+                post(new URI("/cars"))
+                        .content(json.write(car).getJson())
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .accept(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isCreated());
+    }
+
+    /**
      * Tests the deletion of a single car by ID.
      * @throws Exception if the delete operation of a vehicle fails
      */

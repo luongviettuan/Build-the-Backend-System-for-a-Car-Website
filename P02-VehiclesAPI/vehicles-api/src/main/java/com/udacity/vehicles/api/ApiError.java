@@ -1,12 +1,16 @@
 package com.udacity.vehicles.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
  * Declares methods to return errors and other messages from the API.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Getter
 class ApiError {
 
     private final String message;
@@ -15,13 +19,5 @@ class ApiError {
     ApiError(String message, List<String> errors) {
         this.message = message;
         this.errors = errors;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public List<String> getErrors() {
-        return errors;
     }
 }
